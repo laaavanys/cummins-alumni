@@ -1,0 +1,149 @@
+/* ---------- General ---------- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f8f9fa;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  padding: 30px 20px;
+  background: #1e2a38;  /* Dark blue */
+  color: white;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#searchBar {
+  width: 60%;
+  max-width: 500px;
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 25px;
+  border: 2px solid #6a1b9a; /* Purple Border */
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+}
+
+#searchBar:focus {
+  border-color: #9c27b0;
+  box-shadow: 0 0 8px rgba(156,39,176,0.6);
+}
+
+/* ---------- Directory Grid ---------- */
+.directory {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 40px;
+}
+
+.alumni-card {
+  background: white;
+  border-radius: 15px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-top: 5px solid #6a1b9a; /* Purple accent */
+}
+
+.alumni-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+}
+
+.alumni-card img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #6a1b9a; /* Purple border on photo */
+}
+
+.alumni-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+  color: #1e2a38;
+}
+
+.alumni-card p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* ---------- Profile Page ---------- */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.profile-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  border-top: 6px solid #6a1b9a; /* Purple accent */
+}
+
+.profile-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 4px solid #6a1b9a;
+  object-fit: cover;
+}
+
+.profile-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #1e2a38;
+}
+
+.profile-card p {
+  font-size: 1rem;
+  margin: 8px 0;
+  color: #444;
+}
+
+.profile-card a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #6a1b9a;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.profile-card a:hover {
+  background: #9c27b0;
+}
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #1e2a38;  /* Dark blue for back button */
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background: #34495e;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post a Job</title>
+  <link rel="stylesheet" href="post-job.css">
+</head>
+<body>
+  <div class="job-form-container">
+    <h2>Post a Job</h2>
+    <form id="jobForm" action="index.html" method="POST" onsubmit="return handleSubmit(event)">
+      
+      <label for="title">Job Title</label>
+      <input type="text" id="title" name="title" placeholder="e.g. Software Engineer" required>
+
+      <label for="company">Company Name</label>
+      <input type="text" id="company" name="company" placeholder="e.g. Cummins Tech" required>
+
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" placeholder="e.g. Nagpur / Remote" required>
+
+      <label for="type">Job Type</label>
+      <select id="type" name="type" required>
+        <option value="">--Select--</option>
+        <option value="Full-time">Full-time</option>
+        <option value="Part-time">Part-time</option>
+        <option value="Internship">Internship</option>
+        <option value="Contract">Contract</option>
+      </select>
+
+      <label for="salary">Salary (Optional)</label>
+      <input type="text" id="salary" name="salary" placeholder="e.g. 10 LPA">
+
+      <label for="apply">Apply Link</label>
+      <input type="url" id="apply" name="apply" placeholder="e.g. https://apply-now.com" required>
+
+      <label for="desc">Job Description</label>
+      <textarea id="desc" name="desc" placeholder="Enter job details here..." rows="4" required></textarea>
+
+      <button type="submit">Post Job</button>
+    </form>
+  </div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      alert("✅ Job Posted Successfully!");
+      window.location.href = "index.html"; // Redirect to main website
+      return false;
+    }
+  </script>
+</body>
+</html>

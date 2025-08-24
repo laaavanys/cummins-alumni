@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumni Profile</title>
+  <link rel="stylesheet" href="styleprofile.css">
+</head>
+<body>
+  <header>
+    <h1>Alumni Profile</h1>
+  </header>
+
+  <div class="profile-container">
+    <div class="profile-card" id="profileDetails">
+      <!-- Profile data yaha load hoga JSON se -->
+    </div>
+  </div>
+
+  <script>
+    // URL se ID read karo
+    const urlParams = new URLSearchParams(window.location.search);
+    const alumniId = urlParams.get("id");
+
+    // Alumni JSON fetch karo
+    fetch("alumni.json")
+      .then(response => response.json())
+      .then(data => {
+        const alumni = data.find(a => a.id == alumniId);
+        if (alumni) {
+          document.getElementById("profileDetails").innerHTML = `
+            <img src="${alumni.image}" alt="${alumni.name}">
+            <h2>${alumni.name}</h2>
+            <p><strong>Batch:</strong> ${alumni.batch}</p>
+            <p><strong>Role:</strong> ${alumni.role}</p>
+            <p><strong>Skills:</strong> ${alumni.skills.join(", ")}</p>
+            <p><strong>Achievements:</strong> ${alumni.achievements}</p>
+            <p>${alumni.bio}</p>
+            <a href="${alumni.linkedin}" target="_blank">LinkedIn</a>
+            <br><br>
+            <a href="alumni-directory.html" class="back-btn">⬅ Back to Directory</a>
+          `;
+        } else {
+          document.getElementById("profileDetails").innerHTML = "<p>Profile not found.</p>";
+        }
+      });
+  </script>
+</body>
+</html>

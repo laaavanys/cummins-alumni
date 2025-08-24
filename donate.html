@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      width: 400px;
+    }
+    .form-container h2 {
+      color: #a0006d;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background: #a0006d;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #7d0053;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Donation Form</h2>
+    <form id="donationForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="amount">Donation Amount</label>
+      <input type="number" id="amount" placeholder="Enter amount" required>
+
+      <label for="cause">Select Cause</label>
+      <select id="cause">
+        <option>Scholarship Fund</option>
+        <option>Lab Modernization</option>
+        <option>Library Resources</option>
+      </select>
+
+      <button type="submit">Proceed to Payment</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("donationForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Form refresh roko
+      
+      alert("🎉 Thank you for your donation! Redirecting to homepage...");
+      
+      // Redirect after 2 sec (same folder ka index1.html open hoga)
+      setTimeout(() => {
+        window.location.href = "./index.html"; 
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

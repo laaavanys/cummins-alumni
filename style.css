@@ -1,0 +1,478 @@
+/* ===== General Styling ===== */
+
+        
+
+        /* Cards Section */
+
+        /* Mentorship Section */
+#mentorship {
+  padding: 60px 0;
+  text-align: center;
+}
+
+#mentorship .section-title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #b52815;  /* theme का purple color */
+  margin-bottom: 10px;
+}
+
+#mentorship .section-title p {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;  /* cards को center करेगा */
+  gap: 40px;                /* cards के बीच का space */
+  flex-wrap: wrap;          /* responsive होने पर नीचे आ जाएंगे */
+}
+
+.card {
+  background:#f3e6d8;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  padding: 25px 20px;
+  width: 280px;             /* fixed width for uniform look */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card-icon {
+  font-size: 3rem;
+  color: #b52815;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #2c2c2c;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+.card .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #b52815;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.card .btn:hover {
+  background: #b52815;
+}
+
+        /* events */
+/* events */
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            filter: brightness(0.8);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: rgb(238, 243, 245);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+/* Footer Container */
+footer {
+    background: linear-gradient(135deg, #c51019, #f3c6c7);
+    color: #fff;
+    padding: 50px 0 20px;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    overflow: visible; /* FIX */
+}
+
+/* Footer Layout */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    width: 90%;
+}
+
+/* Footer Column */
+.footer-column {
+    flex: 1 1 220px;
+    min-width: 220px;
+    border: none;
+}
+
+/* Headings */
+.footer-column h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #00e6ff;
+    position: relative;
+}
+
+/* Decorative Line */
+.footer-column h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #00e6ff;
+    margin-top: 6px;
+    border-radius: 2px;
+}
+
+/* Paragraph */
+.footer-column p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Unordered List */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: none; /* FIX */
+    overflow: visible; /* FIX */
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #e4e4e4;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    display: inline-block;
+}
+
+.footer-column ul li a:hover {
+    color: #00e6ff;
+    padding-left: 5px;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: #222;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #00e6ff;
+    color: #000;
+    transform: scale(1.1);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 30px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+
+ /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--secondary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+            }
+
+            .events-timeline::after {
+                left: 31px;
+            }
+
+            .event-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+
+            .event-item:nth-child(even) {
+                left: 0;
+            }
+
+            .event-item::after {
+                left: 21px;
+                right: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+        }
+      body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  font-size: 28px;
+  color: #1a1a40;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.read-more-btn {
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 1px solid #1a1a40;
+  border-radius: 20px;
+  color: #1a1a40;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.read-more-btn:hover {
+  background: #1a1a40;
+  color: #fff;
+}
+
+
+       
+/* Alumnae Carousel Section */
+.stories-section {
+  width: 100%;
+  padding: 40px 0;
+  background: #fff;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.section-title h2 {
+  font-size: 28px;
+  color: #b52815; /* Maroon heading */
+  font-weight: 700;
+}
+
+.section-title p {
+  color: #555;
+  font-size: 16px;
+}
+
+/* Carousel Container */
+.alumnae-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
+
+/* Track for continuous sliding */
+.alumnae-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll-left 25s linear infinite;
+  width: max-content;
+}
+
+/* Alumnae Card */
+/* Alumnae Card with Gradient Glassmorphism */
+.alumnae-card {
+  flex: 0 0 300px;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  backdrop-filter: blur(15px);
+  border-radius: 18px;
+  padding: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Hover Effect */
+.alumnae-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(128, 0, 64, 0.3);
+  background: linear-gradient(135deg, #ffe8f0 0%, #e7e9ff 100%);
+}
+
+
+/* Card Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.card-header img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #b52815;
+}
+
+/* Alumnae Info */
+.card-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 3px;
+}
+
+.card-header .batch {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 3px;
+}
+
+.card-header .role {
+  font-size: 13px;
+  color: #777;
+}
+
+/* Continuous Sliding Animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

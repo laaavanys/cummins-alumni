@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CCEW Alumni</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Custom highlight behind "Engineering" text */
+    .highlight-engineering {
+      position: relative;
+      display: inline-block;
+      z-index: 0;
+      color: #b52815;
+      font-weight: 900;
+    }
+    .highlight-engineering::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0.6em;
+      left: -0.1em;
+      width: 100%;
+      height: 1em;
+      background: #f2d7c17a;
+      border-radius: 0.3rem;
+      transform: skew(-12deg);
+    }
+    /* Scrollbar hidden but still scrollable */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-[#f4e9df] via-[white] to-[#f9f5f1] min-h-screen font-serif">
+
+  <header class="bg-[#f4e9df] border-b border-[#b52815]">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6 md:px-12">
+      <a href="#" class="flex items-center space-x-3">
+        <img src="asset/logo.png" alt="CCEW College logo, minimalist badge in maroon and beige colors" onerror="this.style.display='none'" class="w-10 h-10 object-contain" />
+        <span class="text-[#b52815] font-semibold text-lg md:text-xl select-none">CCEW Alumni</span>
+      </a>
+      <nav class="hidden md:flex space-x-8 text-[#b52815] font-semibold text-sm md:text-base">
+         <li><a href="alumni-directory.html">Directory</a></li>
+        <a href="#events" class="hover:text-[#b52815] transition">Events</a>
+        <a href="#stories" class="hover:text-[#5a2a27] transition">Stories</a>
+        <a href="#jobs" class="hover:text-[#5a2a27] transition">Jobs</a>
+        <a href="#mentorship" class="hover:text-[#5a2a27] transition">Mentorship</a>
+        <a href="#gallery" class="hover:text-[#5a2a27] transition">Gallery</a>
+        <a href="#donate" class="hover:text-[#5a2a27] transition">Donate</a>
+      </nav>
+      <div class="md:hidden">
+        <button id="menuBtn" aria-label="Toggle menu" class="text-[#b52815] focus:outline-none focus:ring-2 focus:ring-[#8d4b45] rounded">
+          ☰
+        </button>
+      </div>
+    </div>
+    <nav id="mobileMenu" class="hidden bg-[#f4e9df] px-6 pb-4 space-y-3 md:hidden text-[#8d4b45] font-semibold text-base">
+      <a href="#alumni-directory.html" class="block hover:text-[#5a2a27] transition">Directory</a>
+      <a href="#events" class="block hover:text-[#5a2a27] transition">Events</a>
+      <a href="#stories" class="block hover:text-[#5a2a27] transition">Stories</a>
+      <a href="#jobs" class="block hover:text-[#5a2a27] transition">Jobs</a>
+      <a href="#mentorship" class="block hover:text-[#5a2a27] transition">Mentorship</a>
+      <a href="#gallery" class="block hover:text-[#5a2a27] transition">Gallery</a>
+      <a href="#donate" class="block hover:text-[#5a2a27] transition">Donate</a>
+    </nav>
+  </header>
+
+  <main class="container mx-auto px-6 md:px-12 py-20 flex flex-col-reverse md:flex-row items-center gap-12 md:gap-28">
+    <section class="max-w-xl text-left">
+      <p class="text-sm text-[#8d4b45] font-medium tracking-wider mb-3">Alumni · Community · Mentorship</p>
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-5 text-[#1d1d1b]">
+        Cummins College of <span class="highlight-engineering">Engineering</span> for Women — Alumni
+      </h1>
+      <p class="text-gray-700 mb-8 max-w-md">
+        Connecting generations of women engineers — events, mentorship, jobs and global chapters.
+      </p>
+      <div class="flex space-x-6 mb-10">
+        <a href="#" class="bg-[#8d4b45] text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-[#5a2a27] transition">Explore Network</a>
+        <a href="#" class="border border-[#8d4b45] text-[#8d4b45] font-semibold px-6 py-3 rounded-lg hover:bg-[#f4e9df] transition">Register Now</a>
+      </div>
+      <div class="text-sm font-semibold text-[#8d4b45] space-x-6">
+        <span><strong>1,500+</strong> members</span>
+        <span><strong>60+</strong> events / year</span>
+        <span><strong>Global</strong> chapters</span>
+      </div>
+    </section>
+    <section aria-label="Hero slideshow" class="w-full max-w-lg md:max-w-xl drop-shadow-lg relative overflow-hidden rounded-xl">
+  <!-- Images -->
+  <div class="slideshow">
+    <img src="asset/college.jpg" 
+         alt="Image 1" 
+         class="slide w-full h-auto object-cover rounded-xl hidden" />
+    <img src="https://picsum.photos/600/400?random=2" 
+         alt="Image 2" 
+         class="slide w-full h-auto object-cover rounded-xl hidden" />
+    <img src="https://picsum.photos/600/400?random=3" 
+         alt="Image 3" 
+         class="slide w-full h-auto object-cover rounded-xl hidden" />
+  </div>
+
+  <!-- Controls -->
+  <button id="prevBtn" class="absolute top-1/2 left-3 -translate-y-1/2 bg-[#8d4b45] text-white px-3 py-2 rounded-full shadow">‹</button>
+  <button id="nextBtn" class="absolute top-1/2 right-3 -translate-y-1/2 bg-[#8d4b45] text-white px-3 py-2 rounded-full shadow">›</button>
+</section>
+
+<script>
+  const slides = document.querySelectorAll(".slide");
+  let index = 0;
+
+  function showSlide(i) {
+    slides.forEach((slide, idx) => {
+      slide.classList.add("hidden");
+      if (idx === i) slide.classList.remove("hidden");
+    });
+  }
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }
+
+  function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  }
+
+  document.getElementById("nextBtn").addEventListener("click", nextSlide);
+  document.getElementById("prevBtn").addEventListener("click", prevSlide);
+
+  // Auto change every 4 sec
+  setInterval(nextSlide, 4000);
+
+  // Initialize
+  showSlide(index);
+</script>
+
+  </main>
+
+  
+
+  
+
+
+
+  <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumnae Association Office Bearers</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #fcf9f9;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+      color: #a30059; /* Maroon title */
+    }
+
+    h3 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .slider-container {
+      overflow: hidden;
+      width: 100%;
+      padding: 20px 0;
+      position: relative;
+    }
+
+    .slider-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 20s linear infinite;
+    }
+
+    .card {
+      width: 220px;
+      background-color: #fff;
+      margin: 0 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      flex-shrink: 0;
+      padding: 15px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .card h2 {
+      margin: 10px 0 5px;
+      color: #b52815;
+      font-size: 18px;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 14px;
+    }
+
+    /* Infinite smooth scrolling */
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Alumnae Association Office Bearers</h1>
+  <h3>[2023-2026]</h3>
+
+  <div class="slider-container">
+    <div class="slider-track" id="sliderTrack">
+      <!-- Original Cards -->
+      <div class="card">
+        <img src="asset/nandini.jpg" alt="Ms.Nandini Menjoge" />
+        <h2>Ms.Nandini Menjoge
+          ETC 2021
+          President
+        </h2>
+        <p>Researcher at IIT</p>
+      </div>
+      <div class="card">
+        <img src="asset/nandiniM.jpg" alt="Ms.Devika Huddar" />
+        <h2>Devika</h2>
+        <p>Researcher at IIT</p>
+      </div>
+      <div class="card">
+        <img src="asset/Debasmitha.jpg" alt="Ms.Debasmitha Mohanty" />
+        <h2>Rasika</h2>
+        <p>Startup Founder</p>
+      </div>
+      <div class="card">
+        <img src="asset/sailee.jpg" alt="Maithili" />
+        <h2>Maithili</h2>
+        <p>Cybersecurity Analyst</p>
+      </div>
+      <div class="card">
+        <img src="asset/krishna.jpg" alt="Alumni" />
+        <h2>Alumni</h2>
+        <p>Software Engineer</p>
+      </div>
+      <div class="card">
+        <img src="asset/smruti.jpg" alt="Debasmitha" />
+        <h2>Debasmitha</h2>
+        <p>AI Engineer at OpenAI</p>
+      </div>
+      <div class="card">
+        <img src="asset/rasika.jpg" alt="Krishna" />
+        <h2>Krishna</h2>
+        <p>Product Manager</p>
+      </div>
+      <div class="card">
+        <img src="asset/maithili.jpg" alt="Saiee" />
+        <h2>Saiee</h2>
+        <p>Consultant</p>
+      </div>
+
+      <!-- Duplicate Cards for Infinite Loop -->
+      <div class="card">
+        <img src="asset/nandini.jpg" alt="Nandini" />
+        <h2>Nandini</h2>
+        <p>Researcher at IIT</p>
+      </div>
+      <div class="card">
+        <img src="asset/nandiniM.jpg" alt="Nandini" />
+        <h2>Devika</h2>
+        <p>Researcher at IIT</p>
+      </div>
+      <div class="card">
+        <img src="asset/Debasmitha.jpg" alt="Rasika" />
+        <h2>Rasika</h2>
+        <p>Startup Founder</p>
+      </div>
+      <div class="card">
+        <img src="asset/sailee.jpg" alt="Maithili" />
+        <h2>Maithili</h2>
+        <p>Cybersecurity Analyst</p>
+      </div>
+      <div class="card">
+        <img src="asset/krishna.jpg" alt="Alumni" />
+        <h2>Alumni</h2>
+        <p>Software Engineer</p>
+      </div>
+      <div class="card">
+        <img src="asset/smruti.jpg" alt="Debasmitha" />
+        <h2>Debasmitha</h2>
+        <p>AI Engineer at OpenAI</p>
+      </div>
+      <div class="card">
+        <img src="asset/rasika.jpg" alt="Krishna" />
+        <h2>Krishna</h2>
+        <p>Product Manager</p>
+      </div>
+      <div class="card">
+        <img src="asset/maithili.jpg" alt="Saiee" />
+        <h2>Saiee</h2>
+        <p>Consultant</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Make infinite loop seamless by duplicating cards dynamically
+    const sliderTrack = document.getElementById("sliderTrack");
+    sliderTrack.innerHTML += sliderTrack.innerHTML;
+  </script>
+</body>
+
+
+
+
+
+        <!-- Events Section -->
+       
+
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CCEW Alumni Events</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #333;
+    }
+
+    /* ---------- Events Section ---------- */
+    .event-section {
+      padding: 80px 8% 60px;
+      background: #f5e7d8;
+      text-align: center;
+    }
+
+    .event-title {
+      font-size: 42px;
+      color: #b52815;
+      margin-bottom: 8px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    .event-subtitle {
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+
+    .event-swiper {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-bottom: 60px;
+    }
+
+    .swiper-slide {
+      position: relative;
+      width: 300px;
+      height: 420px;
+      border-radius: 18px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      transition: transform 0.5s ease;
+    }
+
+    .swiper-slide { /* ... */ transition: none; }
+
+    
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+      border-radius: 18px;
+    }
+
+    .event-content {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      color: #fff;
+      z-index: 2;
+      text-align: left;
+    }
+
+    .event-date {
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: #ffe2f0;
+    }
+
+    .event-name {
+      font-size: 22px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .event-details {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      color: #f5f5f5;
+    }
+
+    .register-btn {
+      background: linear-gradient(135deg, #a30059, #d5008f);
+      color: #fff;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      text-decoration: none;
+    }
+
+    .register-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #b52815;
+      transition: transform 0.3s ease;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      transform: scale(1.2);
+    }
+
+    .swiper-pagination-bullet {
+      background: #b52815;
+      opacity: 0.6;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #b52815;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- ---------- Events Section ---------- -->
+  <section id="events" class="event-section">
+    <h1 class="event-title">Upcoming Events</h1>
+    <p class="event-subtitle">
+      Join us for networking, learning, and celebrating our community
+    </p>
+
+    <div class="event-swiper swiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide" style="background-image: url('https://source.unsplash.com/900x600/?conference,people');">
+          <div class="overlay"></div>
+          <div class="event-content">
+            <div class="event-date">Oct 15, 2025 | Virtual</div>
+            <h2 class="event-name">Women in Tech Leadership</h2>
+            <p class="event-details">
+              A panel discussion featuring our most accomplished alumnae sharing their leadership journeys.
+            </p>
+            <a href="register.html" class="register-btn">Register Now</a>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide" style="background-image: url('asset/event3.jpg');">
+          <div class="overlay"></div>
+          <div class="event-content">
+            <div class="event-date">Sept 5, 2025 | Campus</div>
+            <h2 class="event-name">25th Anniversary Reunion</h2>
+            <p class="event-details">
+              Come back to campus to reconnect with your batchmates and see how CCEW has grown.
+            </p>
+            <a href="register.html" class="register-btn">Register Now</a>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide" style="background-image: url('asset/event1.jpg');">
+          <div class="overlay"></div>
+          <div class="event-content">
+            <div class="event-date">Aug 30, 2025 | Virtual</div>
+            <h2 class="event-name">Career Transition Workshop</h2>
+            <p class="event-details">
+              Expert strategies for navigating career changes at any stage of your professional journey.
+            </p>
+            <a href="register.html" class="register-btn">Register Now</a>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide" style="background-image: url('asset/event2.jpg');">
+          <div class="overlay"></div>
+          <div class="event-content">
+            <div class="event-date">Nov 12, 2025 | Global Meetups</div>
+            <h2 class="event-name">CCEW Global Networking Day</h2>
+            <p class="event-details">
+              Simultaneous meetups in major cities worldwide - find your local chapter event.
+            </p>
+            <a href="register.html" class="register-btn">Register Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation + Pagination -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+<script>
+  const swiper = new Swiper(".event-swiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    coverflowEffect: {
+      rotate: 30,
+      stretch: 0,
+      depth: 120,
+      modifier: 1,
+      slideShadows: true,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    speed: 700,
+
+    // 👇 Responsive slides per view
+    breakpoints: {
+      0: { slidesPerView: 1 },     // Mobile
+      768: { slidesPerView: 2 },   // Tablet
+      1024: { slidesPerView: 3 }   // Desktop
+    }
+  });
+</script>
+
+</body>
+
+
+
+        <!-- Success Stories Section -->
+<section id="stories" class="stories-section" style="margin-top: 0; padding-top: 0;">
+  <div class="container">
+    <div class="section-title">
+      <h2 style="margin-top: 0;">Most Prominent Alumnae</h2>
+      <p>Inspiring journeys from our alumni community</p>
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="alumnae-carousel">
+      <div class="alumnae-track">
+
+        <!-- Story 1 -->
+        <div class="alumnae-card">
+          <div class="card-header">
+            <img src="asset/vaidehi.jpg" alt="Vaidehi">
+            <div>
+              <h3>Ms. Vaidehi Chinchulkar</h3>
+              <p class="batch">Mech- 2013-14</p>
+              <p class="role">e.GO Mobile, Inc Germany</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="alumnae-card">
+          <div class="card-header">
+            <img src="asset/ruchita.jpg" alt="Ruchita">
+            <div>
+              <h3>Ms. Ruchita Manohar</h3>
+              <p class="batch">ETC- 2013-14</p>
+              <p class="role">Ventia Austrilia Pty Ltd, Austrilia</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="alumnae-card">
+          <div class="card-header">
+            <img src="asset/bobby.jpg" alt="Bobby">
+            <div>
+              <h3>Ms. Bobby Janbandhu</h3>
+              <p class="batch">ETC- 2015-16</p>
+              <p class="role">Lets Transport India</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 4 -->
+        <div class="alumnae-card">
+          <div class="card-header">
+            <img src="asset/anushtha.jpg" alt="Anushtha">
+            <div>
+              <h3>Anushtha Sharma</h3>
+              <p class="batch">CE 2023</p>
+              <p class="role">CISCO Bangalore, India</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 5 -->
+        <div class="alumnae-card">
+          <div class="card-header">
+            <img src="asset/uma.jpg" alt="Uma">
+            <div>
+              <h3>Uma Kore</h3>
+              <p class="batch">Mech- 2019</p>
+              <p class="role">Volvo Bengaluru, India</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate Cards for Infinite Loop -->
+        <div class="alumnae-card">
+          <div class="card-header">
+            <img src="asset/vaidehi.jpg" alt="Vaidehi">
+            <div>
+              <h3>Ms. Vaidehi Chinchulkar</h3>
+              <p class="batch">Mech- 2013-14</p>
+              <p class="role">e.GO Mobile, Inc Germany</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="alumnae-card">
+          <div class="card-header">
+            <img src="asset/ruchita.jpg" alt="Ruchita">
+            <div>
+              <h3>Ms. Ruchita Manohar</h3>
+              <p class="batch">ETC- 2013-14</p>
+              <p class="role">Ventia Austrilia Pty Ltd, Austrilia</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="alumnae-card">
+          <div class="card-header">
+            <img src="asset/bobby.jpg" alt="Bobby">
+            <div>
+              <h3>Ms. Bobby Janbandhu</h3>
+              <p class="batch">ETC- 2015-16</p>
+              <p class="role">Lets Transport India</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="alumnae-card">
+          <div class="card-header">
+            <img src="asset/anushtha.jpg" alt="Anushtha">
+            <div>
+              <h3>Anushtha Sharma</h3>
+              <p class="batch">CE 2023</p>
+              <p class="role">CISCO Bangalore, India</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="alumnae-card">
+          <div class="card-header">
+            <img src="asset/uma.jpg" alt="Uma">
+            <div>
+              <h3>Uma Kore</h3>
+              <p class="batch">Mech- 2019</p>
+              <p class="role">Volvo Bengaluru, India</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+        <!-- Job Board Section -->
+        <section id="jobs" style="margin-top: 0; padding-top: 0;">
+            <div class="container">
+                <div class="section-title">
+                    <h2 style="margin-top: 0;">Job Board</h2>
+                    <p>Opportunities exclusively for CCEW alumnae</p>
+                </div>
+                <div class="cards-container">
+                    <div class="card">
+                        <h3>Senior Data Scientist</h3>
+                        <p><strong>Company:</strong> TechSolutions Inc.</p>
+                        <p><strong>Location:</strong> Bengaluru/Hybrid</p>
+                        <p><strong>Posted by:</strong> Ananya Deshpande (2016)</p>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                    <div class="card">
+                        <h3>Engineering Manager</h3>
+                        <p><strong>Company:</strong> GreenEnergy Tech</p>
+                        <p><strong>Location:</strong> Pune</p>
+                        <p><strong>Posted by:</strong> HR Team (2009 alum)</p>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                    <div class="card">
+                        <h3>Product Designer</h3>
+                        <p><strong>Company:</strong> CreativeMinds UX</p>
+                        <p><strong>Location:</strong> Mumbai</p>
+                        <p><strong>Posted by:</strong> Nandini Chopra (2013)</p>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                    <div class="post-job-btn-container">
+    <!-- ✅ Post a Job Button -->
+
+</div>
+     </div>
+                </div>
+
+            </div>
+            <!-- ✅ Post a Job Button (always center aligned) -->
+<div style="width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 20px; margin-bottom: 0;">
+  <button 
+    onclick="window.location.href='post-job.html'" 
+    style="
+      background: #b52815; 
+      color: white; 
+      font-size: 16px; 
+      padding: 12px 28px; 
+      border: none; 
+      border-radius: 8px; 
+      cursor: pointer; 
+      font-weight: 500; 
+      transition: 0.3s ease;
+      display: inline-block;
+    "
+    onmouseover="this.style.background='#7a004a'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0px 6px 14px rgba(0,0,0,0.15)';"
+    onmouseout="this.style.background='#a10064'; this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+  >
+    + Post a Job
+  </button>
+        </section>
+
+        <!-- Mentorship Section -->
+        <section id="mentorship" style="margin-top: 0; padding-top: 0;">
+            <div class="container">
+                <div class="section-title">
+                    <h2 style="margin-top: 0;">Mentorship Program</h2>
+                    <p>Connect across generations of CCEW excellence</p>
+                </div>
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Become a Mentor</h3>
+                        <p>Share your expertise and guide the next generation of women engineers.</p>
+                        <a href="mentor-register.html" class="btn">Join as Mentor</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3>Find a Mentor</h3>
+                        <p>Connect with experienced alumnae in your field of interest.</p>
+                        <a href="find-mentor.html" class="btn">Find Mentor</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" style="margin-top: 0; padding-top: 0;">
+            <div class="container">
+                <div class="section-title">
+                    <h2 style="margin-top: 0;">Our Memories</h2>
+                    <p>Capturing moments that define the CCEW experience</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="asset/kabaddi.jpg" alt="Historic black and white photo of early CCEW students in front of the college building">
+                        <div class="gallery-caption">
+                            <h3>Sphurti competition in CCoEW</h3>
+                            <p>Students Playing Kabaddi</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="asset/umang.jpg" alt="Colorful festival celebration on campus with traditional costumes and decorations">
+                        <div class="gallery-caption">
+                            <h3>College Fest</h3>
+                            <p>Students performing cultural dance</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="asset/alumni.jpg" alt="Modern robotics lab with female students working on advanced projects">
+                        <div class="gallery-caption">
+                            <h3>Graduation Ceremony</h3>
+                            <p>Alumni of CCOEW</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="asset/ram.jpg" alt="Group photo of alumnae from different batches smiling at golden jubilee celebration">
+                        <div class="gallery-caption">
+                            <h3>Cultural Program</h3>
+                            <p>Students performing drama</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+
+<!-- ✅ Explore More Button Center -->
+<div style="width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 0; margin-bottom: 0;">
+  <button 
+    onclick="window.location.href='memories.html'" 
+    style="
+      background: #b52815; 
+      color: white; 
+      font-size: 16px; 
+      padding: 12px 28px; 
+      border: none; 
+      border-radius: 8px; 
+      cursor: pointer; 
+      font-weight: 500; 
+      transition: 0.3s ease;
+    "
+    onmouseover="this.style.background='#b52815'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0px 6px 14px rgba(0,0,0,0.15)';"
+    onmouseout="this.style.background='#b52815'; this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+  >
+    Explore More →
+  </button>
+</div>
+
+</section>
+        <!-- Donation Section -->
+        <section id="donate" style="margin-top: 0; padding-top: 0;">
+            <div class="container">
+                <div class="section-title">
+                    <h2 style="margin-top: 0;">Support Our Future</h2>
+                    <p>Your contribution helps empower the next generation of women engineers</p>
+                </div>
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Scholarship Fund</h3>
+                        <p>Help deserving students access quality education through financial support.</p>
+                        <a href="donate.html" class="btn">Donate Now</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Lab Modernization</h3>
+                        <p>Contribute to upgrading our facilities with cutting-edge technology.</p>
+                        <a href="donate.html" class="btn">Donate Now</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Library Resources</h3>
+                        <p>Fund digital resources and rare collections for research excellence.</p>
+                        <a href="donate.html" class="btn">Donate Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======= Alumni Portal Footer ======= -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <!-- Column 1 -->
+            <div class="footer-column">
+                <h3>CCEW Alumni</h3>
+                <p>
+                    Connecting generations of outstanding women engineers from
+                    Cummins College of Engineering for Women, Nagpur.
+                </p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Alumni Directory</a></li>
+                    <li><a href="#">Events Calendar</a></li>
+                    <li><a href="#">Mentorship Program</a></li>
+                    <li><a href="#">Career Services</a></li>
+                    <li><a href="#">Give Back</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="#">Annual Meet</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Transcript Requests</a></li>
+                    <li><a href="#">Campus News</a></li>
+                    <li><a href="#">Faculty Directory</a></li>
+                    <li><a href="#">Library Access</a></li>
+                    <li><a href="#">Alumni Benefits</a></li>
+                    <li><a href="#">Workshops</a></li>
+                    <li><a href="#">Scholarships</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Cummins College Campus, Nagpur</li>
+                    <li><i class="fas fa-phone-alt"></i> +91 712 2531123</li>
+                    <li><i class="fas fa-envelope"></i> alumni@cumminscollege.edu.in</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p>© 2025 Cummins College of Engineering for Women Alumni Association. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="script.js"></script>
+    
+    </body>
+    </head>
+</html>

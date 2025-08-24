@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in</title>
+  <style>
+    /* ----------------------------
+       Global Styles
+    ---------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    }
+
+    /* ----------------------------
+       Login Box Wrapper
+    ---------------------------- */
+    .login-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* ----------------------------
+       Login Box
+    ---------------------------- */
+    .login-box {
+      background: #fff;
+      padding: 40px 35px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .login-box h1 {
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .login-box h1 .dot {
+      color: #4e54c8;
+    }
+
+    .login-box p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .login-box a {
+      color: #4e54c8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .login-box a:hover {
+      text-decoration: underline;
+    }
+
+    /* ----------------------------
+       Form Inputs
+    ---------------------------- */
+    .login-box input {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .login-box input:focus {
+      border-color: #4e54c8;
+      box-shadow: 0 0 6px rgba(78, 84, 200, 0.4);
+    }
+
+    /* ----------------------------
+       Button Styles
+    ---------------------------- */
+    .button-row {
+      margin-top: 20px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background: #4e54c8;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background: #3b40a4;
+    }
+
+    /* ----------------------------
+       Animation
+    ---------------------------- */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ----------------------------
+       Responsive Design
+    ---------------------------- */
+    @media (max-width: 500px) {
+      .login-box {
+        padding: 30px 20px;
+      }
+
+      .login-box h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="login-box">
+      <h1>Log in<span class="dot">.</span></h1>
+      <p>Don't have an account? <a href="signup.html">Create one</a></p>
+
+      <form id="loginForm">
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+
+        <div class="button-row">
+          <button type="submit" class="login-btn">Log in</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+

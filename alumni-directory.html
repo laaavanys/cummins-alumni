@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumni Directory</title>
+  <link rel="stylesheet" href="styleprofile.css">
+</head>
+<body>
+  <header>
+    <h1>Alumni Directory</h1>
+    <input type="text" id="searchBar" placeholder="Search by name or batch...">
+  </header>
+
+  <section class="Directory" id="alumniList"></section>
+
+  <script>
+    // JSON se data load karo
+    fetch("alumni.json")
+      .then(res => res.json())
+      .then(data => {
+        const alumniList = document.getElementById("alumniList");
+
+        data.forEach(alumni => {
+          alumniList.innerHTML += `
+            <div class="alumni-card" data-name="${alumni.name}" data-batch="${alumni.batch}">
+              <a href="profile.html?id=${alumni.id}">
+                <img src="${alumni.image}" alt="${alumni.name}">
+                <h3>${alumni.name}</h3>
+                <p>Batch: ${alumni.batch}</p>
+                <p>${alumni.role}</p>
+              </a>
+            </div>
+          `;
+        });
+
+        // Search filter
+        const searchBar = document.getElementById('searchBar');
+        const alumniCards = alumniList.getElementsByClassName('alumni-card');
+
+        searchBar.addEventListener('keyup', function(e) {
+          let query = e.target.value.toLowerCase();
+          Array.from(alumniCards).forEach(function(card) {
+            let name = card.getAttribute('data-name').toLowerCase();
+            let batch = card.getAttribute('data-batch').toLowerCase();
+            if (name.includes(query) || batch.includes(query)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+  </script>
+</body>
+</html>

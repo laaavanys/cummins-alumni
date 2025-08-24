@@ -1,0 +1,983 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cummins College of Engineering for Women - Alumni Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #990066;
+            --secondary: #333366;
+            --accent: #ff9966;
+            --light: #f8f8ff;
+            --dark: #222;
+            --glass: rgba(255, 255, 255, 0.2);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('asset/convocation.jpg') center/cover no-repeat;
+            color: white;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Navigation */
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 20px auto 0;
+            color: #555;
+        }
+
+        /* Cards Section */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        /* Alumni Directory */
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .alumni-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .alumni-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .alumni-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .alumni-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .alumni-card:hover .alumni-image img {
+            transform: scale(1.1);
+        }
+
+        .alumni-info {
+            padding: 20px;
+        }
+
+        .alumni-info h3 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .alumni-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Events Section */
+        .events-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .events-timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .event-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+        }
+
+        .event-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .event-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .event-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 15px;
+            right: -10px;
+            z-index: 1;
+        }
+
+        .event-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .event-content {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            filter: brightness(0.8);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--secondary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+            }
+
+            .events-timeline::after {
+                left: 31px;
+            }
+
+            .event-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+
+            .event-item:nth-child(even) {
+                left: 0;
+            }
+
+            .event-item::after {
+                left: 21px;
+                right: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container nav-container">
+                <a href="#" class="logo">CCEW Alumni</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#directory">Directory</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#stories">Success Stories</a></li>
+                    <li><a href="#jobs">Jobs</a></li>
+                    <li><a href="#mentorship">Mentorship</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#donate" class="btn">Donate</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <h1>Cummins College of Engineering for Women</h1>
+            <p>Connecting the past, present, and future of CCEW's brilliant women engineers</p>
+            <a href="#directory" class="btn">Explore Our Alumni Network</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Key Features Section -->
+        <section id="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Alumni Network</h2>
+                    <p>A global community of accomplished women engineers shaping the future</p>
+                </div>
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <h3>Alumni Directory</h3>
+                        <p>Connect with former classmates and discover incredible career journeys across the globe.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Events</h3>
+                        <p>Join reunions, workshops, and networking events designed for professional growth.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Mentorship</h3>
+                        <p>Give back by guiding current students or receive guidance from experienced alumnae.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alumni Directory Section -->
+        <section id="directory">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Alumni Directory</h2>
+                    <p>Meet the brilliant women who walked these halls before you</p>
+                </div>
+                <div class="directory-grid">
+                    <div class="alumni-card">
+                        <div class="alumni-image">
+                            <img src="asset/simran1.jpg" alt="Smiling South Asian woman in business casual attire working at a modern tech office">
+                        </div>
+                        <div class="alumni-info">
+                            <h3>Simranjeet Kaur</h3>
+                            <p>Class of 2024</p>
+                            <p>Software Engineer,CITI</p>
+                        </div>
+                    </div>
+                    <div class="alumni-card">
+                        <div class="alumni-image">
+                            <img src="asset/divyanshi.jpg" alt="Confident woman in lab coat presenting at a scientific conference">
+                        </div>
+                        <div class="alumni-info">
+                            <h3>Divyanshi Singh</h3>
+                            <p>Class of 2024</p>
+                            <p>Software Engineer,Pepsico</p>
+                        </div>
+                    </div>
+                    <div class="alumni-card">
+                        <div class="alumni-image">
+                            <img src="asset/mahek.jpg" alt="Successful entrepreneur in modern office surrounded by awards">
+                        </div>
+                        <div class="alumni-info">
+                            <h3>Mahek Gupta</h3>
+                            <p>Class of 2025</p>
+                            <p>Software Engineer,Pepsico</p>
+                        </div>
+                    </div>
+                    <div class="alumni-card">
+                        <div class="alumni-image">
+                            <img src="asset/renuka.jpg" alt="Professional woman architect reviewing blueprints at construction site">
+                        </div>
+                        <div class="alumni-info">
+                            <h3>Renuka Mohair</h3>
+                            <p>Class of 2025</p>
+                            <p>Software Engineer,Bristlecone</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Upcoming Events</h2>
+                    <p>Join us for networking, learning, and celebrating our community</p>
+                </div>
+                <div class="events-timeline">
+                    <div class="event-item">
+                        <div class="event-content">
+                            <div class="event-date">April 15, 2023 | Virtual</div>
+                            <h3>Women in Tech Leadership</h3>
+                            <p>A panel discussion featuring our most accomplished alumnae sharing their leadership journeys.</p>
+                            <a href="#" class="btn">Register Now</a>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-content">
+                            <div class="event-date">June 5, 2023 | Campus</div>
+                            <h3>25th Anniversary Reunion</h3>
+                            <p>Come back to campus to reconnect with your batchmates and see how CCEW has grown.</p>
+                            <a href="#" class="btn">Register Now</a>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-content">
+                            <div class="event-date">August 20, 2023 | Virtual</div>
+                            <h3>Career Transition Workshop</h3>
+                            <p>Expert strategies for navigating career changes at any stage of your professional journey.</p>
+                            <a href="#" class="btn">Register Now</a>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-content">
+                            <div class="event-date">November 12, 2023 | Global Meetups</div>
+                            <h3>CCEW Global Networking Day</h3>
+                            <p>Simultaneous meetups in major cities worldwide - find your local chapter event.</p>
+                            <a href="#" class="btn">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories Section -->
+        <section id="stories">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Success Stories</h2>
+                    <p>Inspiring journeys from our alumni community</p>
+                </div>
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h3>Dr. Meera Joshi</h3>
+                        <p>"CCEW gave me the courage to pursue my PhD in Nuclear Engineering - now I lead a research team developing safer energy solutions."</p>
+                        <a href="#" class="btn">Read Full Story</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Aishwarya Rao</h3>
+                        <p>"The coding club at CCEW sparked my passion for AI. Today, my startup is revolutionizing healthcare diagnostics."</p>
+                        <a href="#" class="btn">Read Full Story</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Sneha Kapoor</h3>
+                        <p>"From engineering principles to business strategy - how my CCEW foundation helped me become CFO of a Fortune 500 company."</p>
+                        <a href="#" class="btn">Read Full Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Job Board Section -->
+        <section id="jobs">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Job Board</h2>
+                    <p>Opportunities exclusively for CCEW alumnae</p>
+                </div>
+                <div class="cards-container">
+                    <div class="card">
+                        <h3>Senior Data Scientist</h3>
+                        <p><strong>Company:</strong> TechSolutions Inc.</p>
+                        <p><strong>Location:</strong> Bengaluru/Hybrid</p>
+                        <p><strong>Posted by:</strong> Ananya Deshpande (2016)</p>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                    <div class="card">
+                        <h3>Engineering Manager</h3>
+                        <p><strong>Company:</strong> GreenEnergy Tech</p>
+                        <p><strong>Location:</strong> Pune</p>
+                        <p><strong>Posted by:</strong> HR Team (2009 alum)</p>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                    <div class="card">
+                        <h3>Product Designer</h3>
+                        <p><strong>Company:</strong> CreativeMinds UX</p>
+                        <p><strong>Location:</strong> Mumbai</p>
+                        <p><strong>Posted by:</strong> Nandini Chopra (2013)</p>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mentorship Section -->
+        <section id="mentorship">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Mentorship Program</h2>
+                    <p>Connect across generations of CCEW excellence</p>
+                </div>
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Become a Mentor</h3>
+                        <p>Share your expertise and guide the next generation of women engineers.</p>
+                        <a href="#" class="btn">Join as Mentor</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3>Find a Mentor</h3>
+                        <p>Connect with experienced alumnae in your field of interest.</p>
+                        <a href="#" class="btn">Find Mentor</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Memories</h2>
+                    <p>Capturing moments that define the CCEW experience</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="asset/kabaddi.jpg" alt="Historic black and white photo of early CCEW students in front of the college building">
+                        <div class="gallery-caption">
+                            <h3>Sphurti competition in CCoEW</h3>
+                            <p>Students Playing Kabaddi</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="asset/umang.jpg" alt="Colorful festival celebration on campus with traditional costumes and decorations">
+                        <div class="gallery-caption">
+                            <h3>College Fest</h3>
+                            <p>Students performing cultural dance</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="asset/fashionShow.jpg" alt="Modern robotics lab with female students working on advanced projects">
+                        <div class="gallery-caption">
+                            <h3>College Show</h3>
+                            <p>Students performing Fashion Show</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="asset/ram.jpg" alt="Group photo of alumnae from different batches smiling at golden jubilee celebration">
+                        <div class="gallery-caption">
+                            <h3>Cultural Program</h3>
+                            <p>Students performing drama</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donation Section -->
+        <section id="donate">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Support Our Future</h2>
+                    <p>Your contribution helps empower the next generation of women engineers</p>
+                </div>
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Scholarship Fund</h3>
+                        <p>Help deserving students access quality education through financial support.</p>
+                        <a href="#" class="btn">Donate Now</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Lab Modernization</h3>
+                        <p>Contribute to upgrading our facilities with cutting-edge technology.</p>
+                        <a href="#" class="btn">Donate Now</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Library Resources</h3>
+                        <p>Fund digital resources and rare collections for research excellence.</p>
+                        <a href="#" class="btn">Donate Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CCEW Alumni</h3>
+                    <p>Connecting generations of outstanding women engineers from Cummins College of Engineering for Women, Nagpur.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Alumni Directory</a></li>
+                        <li><a href="#">Events Calendar</a></li>
+                        <li><a href="#">Mentorship Program</a></li>
+                        <li><a href="#">Career Services</a></li>
+                        <li><a href="#">Give Back</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Transcript Requests</a></li>
+                        <li><a href="#">Campus News</a></li>
+                        <li><a href="#">Faculty Directory</a></li>
+                        <li><a href="#">Library Access</a></li>
+                        <li><a href="#">Alumni Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Cummins College Campus, Nagpur</li>
+                        <li><i class="fas fa-phone-alt"></i> +91 712 2531123</li>
+                        <li><i class="fas fa-envelope"></i> alumni@cumminscollege.edu.in</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 Cummins College of Engineering for Women Alumni Association. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Change icon based on menu state
+            if (navLinks.classList.contains('active')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll Animation
+        const animateOnScroll = () => {
+            const cards = document.querySelectorAll('.card, .alumni-card, .gallery-item');
+            
+            cards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (cardPosition < screenPosition) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Initialize cards with default styles for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card, .alumni-card, .gallery-item');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease';
+            });
+            
+            // Initial check in case some elements are already in view
+            animateOnScroll();
+        });
+
+        // Add event listener for scroll
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Form Submission Handling (Example for future implementation)
+        document.querySelectorAll('a.btn[href="#"]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.preventDefault();
+                alert('This feature will be implemented in the next update!');
+            });
+        });
+    </script>
+</body>
+</html>
+
+```

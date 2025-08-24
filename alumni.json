@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Anshika Kumari",
+    "batch": "2023",
+    "role": "Software Engineer at CITI",
+    "image": "asset/anshika.jpg",
+    "skills": ["Java", "Spring Boot", "SQL"],
+    "achievements": "Top Performer at CITI 2023",
+    "linkedin": "#",
+    "bio": "Anshika is a passionate developer with interest in finance & technology."
+  },
+  {
+    "id": 2,
+    "name": "Divyanshi Singh",
+    "batch": "2023",
+    "role": "Product Manager at Pepsico",
+    "image": "asset/divyanshinew.jpg",
+    "skills": ["Product Strategy", "Agile", "UI/UX"],
+    "achievements": "Launched multiple successful product lines at Pepsico",
+    "linkedin": "#",
+    "bio": "Divyanshi works as a Product Manager at Pepsico, managing products and teams."
+  },
+  {
+    "id": 3,
+    "name": "Sanjiti Pimpalkar",
+    "batch": "2023",
+    "role": "Data Scientist at Pepsico",
+    "image": "asset/sanjiti.jpg",
+    "skills": ["Python", "Machine Learning", "Data Visualization"],
+    "achievements": "Built predictive models for data-driven decisions",
+    "linkedin": "#",
+    "bio": "Sanjiti is a data enthusiast working on analytics and AI-based solutions."
+  },
+  {
+    "id": 4,
+    "name": "Aqsa Fatima",
+    "batch": "2023",
+    "role": "Embedded Engineer at TCS",
+    "image": "asset/aqsa.jpg",
+    "skills": ["Embedded C", "IoT", "Microcontrollers"],
+    "achievements": "Developed IoT prototypes at TCS",
+    "linkedin": "#",
+    "bio": "Aqsa specializes in embedded systems and connected devices."
+  },
+  {
+    "id": 5,
+    "name": "Swara Tupe",
+    "batch": "2023",
+    "role": "Engineer at Kirloskar",
+    "image": "asset/swara.jpg",
+    "skills": ["Mechanical Design", "CAD", "Manufacturing"],
+    "achievements": "Contributed to engine design projects",
+    "linkedin": "#",
+    "bio": "Swara works as a Mechanical Engineer at Kirloskar with focus on design."
+  },
+  {
+    "id": 6,
+    "name": "Mahima Dubey",
+    "batch": "2023",
+    "role": "Engineer at Kirloskar",
+    "image": "asset/mahima.jpg",
+    "skills": ["Mechanical Engineering", "Product Design"],
+    "achievements": "Worked on multiple manufacturing projects",
+    "linkedin": "#",
+    "bio": "Mahima is a mechanical engineer with keen interest in innovation."
+  },
+  {
+    "id": 7,
+    "name": "Divya Chaudhari",
+    "batch": "2023",
+    "role": "Cybersecurity Analyst at Capgemini",
+    "image": "asset/divya.jpg",
+    "skills": ["Cybersecurity", "Networking", "Risk Analysis"],
+    "achievements": "Worked on penetration testing and risk analysis",
+    "linkedin": "#",
+    "bio": "Divya is a cybersecurity analyst focusing on secure IT systems."
+  },
+  {
+    "id": 8,
+    "name": "Ragini Karmarkar",
+    "batch": "2023",
+    "role": "Engineer at Persistent",
+    "image": "asset/ragini.jpg",
+    "skills": ["Java", "React", "Cloud"],
+    "achievements": "Delivered enterprise software projects",
+    "linkedin": "#",
+    "bio": "Ragini is a software engineer at Persistent, passionate about coding."
+  },
+  {
+    "id": 9,
+    "name": "Dhanashri Nirwan",
+    "batch": "2023",
+    "role": "Engineer at Aker Solutions",
+    "image": "asset/dhanashri.jpg",
+    "skills": ["Mechanical Engineering", "Oil & Gas", "CAD"],
+    "achievements": "Contributed to design of energy solutions",
+    "linkedin": "#",
+    "bio": "Dhanashri is a mechanical engineer working in oil & gas solutions."
+  },
+  {
+    "id": 10,
+    "name": "Tanvi Mahankar",
+    "batch": "2023",
+    "role": "Mechanical Engineer at TechnipFMC",
+    "image": "asset/tanvi.jpg",
+    "skills": ["Design Engineering", "Piping", "CAD"],
+    "achievements": "Part of global engineering design projects",
+    "linkedin": "#",
+    "bio": "Tanvi is a mechanical engineer at TechnipFMC with expertise in design."
+  },
+  {
+    "id": 11,
+    "name": "Vaidehi Wakde",
+    "batch": "2023",
+    "role": "Blockchain Developer at ZF",
+    "image": "asset/vaidehi.jpg",
+    "skills": ["Blockchain", "Ethereum", "Smart Contracts"],
+    "achievements": "Developed blockchain-based automotive solutions",
+    "linkedin": "#",
+    "bio": "Vaidehi is a blockchain developer exploring decentralized systems."
+  },
+  {
+    "id": 12,
+    "name": "Eesha Thakare",
+    "batch": "2023",
+    "role": "Robotics Engineer at ZF",
+    "image": "asset/eesha.jpg",
+    "skills": ["Robotics", "AI", "Automation"],
+    "achievements": "Worked on robotics solutions for manufacturing",
+    "linkedin": "#",
+    "bio": "Eesha is a robotics engineer with passion for automation and AI."
+  }
+]

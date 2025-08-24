@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    /* ===== Reset & Fonts ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+    }
+
+    .login-wrapper {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+    }
+
+    .login-box {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .login-box h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .dot {
+      color: #2575fc;
+    }
+
+    .login-box p {
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .login-box p a {
+      color: #2575fc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    form input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    form input:focus {
+      border-color: #2575fc;
+    }
+
+    .button-row {
+      margin-top: 15px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #2575fc;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background: #6a11cb;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="login-box">
+      <h1>Sign up<span class="dot">.</span></h1>
+      <p>Already have an account? <a href="login.html">Log in</a></p>
+
+      <form id="signupForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm Password" required>
+
+        <div class="button-row">
+          <button type="submit" class="login-btn">Sign up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Signup Form Handler
+    const signupForm = document.getElementById('signupForm');
+
+    if (signupForm) {
+      signupForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert("Signup successful! Redirecting to login...");
+        window.location.href = "login.html"; // redirect after signup
+      });
+    }
+  </script>
+</body>
+</html>

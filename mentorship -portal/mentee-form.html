@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentee Registration</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <h2>Mentee Registration</h2>
+  <form id="menteeForm">
+    <input type="text" name="name" placeholder="Full Name" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input type="text" name="interest" placeholder="Field of Interest (e.g. AI, Embedded Systems)" required><br>
+    <textarea name="goal" placeholder="What do you expect from a mentor?" required></textarea><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById("menteeForm").addEventListener("submit", function(event){
+      event.preventDefault();
+      alert("Mentee form submitted successfully!");
+      window.location.href = "mentorship.html"; // redirect to first page
+    });
+  </script>
+</body>
+</html>

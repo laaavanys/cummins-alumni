@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>More Memories</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e6ebf2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #a10064;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #555;
+      font-size: 16px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .gallery-card .info {
+      padding: 15px;
+    }
+
+    .gallery-card .info h3 {
+      font-size: 18px;
+      margin: 0;
+      color: #333;
+    }
+
+    .gallery-card .info p {
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Memories</h1>
+    <p>Explore more beautiful moments from our college life</p>
+  </header>
+
+  <section class="gallery">
+    <!-- 12 Gallery Photos -->
+    <div class="gallery-card">
+      <img src="asset/kabaddi.jpg" alt="Memory 1">
+      <div class="info">
+        <h3>Sports Event</h3>
+        <p>Students enjoying sports activities</p>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="asset/umang.jpg" alt="Memory 2">
+      <div class="info">
+        <h3>College Fest</h3>
+        <p>dance performance</p>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="asset/flashmob.jpg" alt="Memory 3">
+      <div class="info">
+        <h3>Flashmob</h3>
+        <p>Students enjoying Flashmob</p>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="asset/traditional.jpg" alt="Memory 4">
+      <div class="info">
+        <h3>Annual Function Anannya</h3>
+        <p>Annual Traditional day</p>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="asset/graduation.jpg" alt="Memory 5">
+      <div class="info">
+        <h3>Convocation ceremo</h3>
+        <p>Celebrating convocation ceremony</p>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="asset/janmashtmi.jpg" alt="Memory 6">
+      <div class="info">
+        <h3>Workshop</h3>
+        <p>Students enjoying Dahi-Handi</p>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="asset/independence.jpg" alt="Memory 7">
+      <div class="info">
+        <h3>Independence Day</h3>
+        <p>Flag hoisting ceremony</p>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="asset/teachers.jpg" alt="Memory 8">
+      <div class="info">
+        <h3>Teachers' Day</h3>
+        <p>Students thanking teachers</p>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="asset/holi.jpg" alt="Memory 9">
+      <div class="info">
+        <h3>Holi event</h3>
+        <p>students playing with colors</p>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="asset/school-visit.jpg" alt="Memory 10">
+      <div class="info">
+        <h3>Picnic</h3>
+        <p>Outdoor fun with friends</p>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="asset/group-discussion.jpg" alt="Memory 11">
+      <div class="info">
+        <h3>Library</h3>
+        <p>Students doing group discussion</p>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="asset/robosocoor.jpg" alt="Memory 12">
+      <div class="info">
+        <h3>Workshop</h3>
+        <p>Hands-on experiments</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

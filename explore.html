@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Alumni</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    header {
+      background: #800050;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    /* 🔎 Search bar */
+    .search-bar {
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .search-bar input {
+      width: 60%;
+      max-width: 400px;
+      padding: 12px 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    .alumni-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .alumni-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding: 20px;
+      transition: 0.3s;
+    }
+
+    .alumni-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    .alumni-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .alumni-card h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .alumni-card p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    footer {
+      background: #800050;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Meet Our Alumni</h1>
+    <p>Explore 12 alumni profiles</p>
+  </header>
+
+  <!-- 🔎 Search bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" onkeyup="searchAlumni()" placeholder="Search by Name or Batch...">
+  </div>
+
+  <section class="alumni-container" id="alumniContainer">
+    <!-- Alumni 1 -->
+    <div class="alumni-card">
+      <img src="https://via.placeholder.com/100" alt="Alumni">
+      <h3>Priya Sharma</h3>
+      <p>Batch: 2018</p>
+      <p>Software Engineer, Infosys</p>
+    </div>
+
+    <!-- Alumni 2 -->
+    <div class="alumni-card">
+      <img src="https://via.placeholder.com/100" alt="Alumni">
+      <h3>Rohit Verma</h3>
+      <p>Batch: 2017</p>
+      <p>Data Analyst, TCS</p>
+    </div>
+
+    <!-- Alumni 3 -->
+    <div class="alumni-card">
+      <img src="https://via.placeholder.com/100" alt="Alumni">
+      <h3>Sneha Patil</h3>
+      <p>Batch: 2019</p>
+      <p>Embedded Engineer, Wipro</p>
+    </div>
+
+    <!-- Alumni 4 -->
+    <div class="alumni-card">
+      <img src="https://via.placeholder.com/100" alt="Alumni">
+      <h3>Amit Joshi</h3>
+      <p>Batch: 2016</p>
+      <p>Team Lead, Capgemini</p>
+    </div>
+
+    <!-- Alumni 5 -->
+    <div class="alumni-card">
+      <img src="https://via.placeholder.com/100" alt="Alumni">
+      <h3>Kavya Nair</h3>
+      <p>Batch: 2020</p>
+      <p>AI Engineer, Google</p>
+    </div>
+
+    <!-- Alumni 6 -->
+    <div class="alumni-card">
+      <img src="https://via.placeholder.com/100" alt="Alumni">
+      <h3>Arjun Mehta</h3>
+      <p>Batch: 2015</p>
+      <p>System Architect, IBM</p>
+    </div>
+
+    <!-- Alumni 7 -->
+    <div class="alumni-card">
+      <img src="https://via.placeholder.com/100" alt="Alumni">
+      <h3>Neha Kulkarni</h3>
+      <p>Batch: 2021</p>
+      <p>Frontend Dev, Microsoft</p>
+    </div>
+
+    <!-- Alumni 8 -->
+    <div class="alumni-card">
+      <img src="https://via.placeholder.com/100" alt="Alumni">
+      <h3>Vikas Singh</h3>
+      <p>Batch: 2014</p>
+      <p>Product Manager, Amazon</p>
+    </div>
+
+    <!-- Alumni 9 -->
+    <div class="alumni-card">
+      <img src="https://via.placeholder.com/100" alt="Alumni">
+      <h3>Simran Kaur</h3>
+      <p>Batch: 2019</p>
+      <p>Cloud Engineer, Accenture</p>
+    </div>
+
+    <!-- Alumni 10 -->
+    <div class="alumni-card">
+      <img src="https://via.placeholder.com/100" alt="Alumni">
+      <h3>Aditya Rao</h3>
+      <p>Batch: 2013</p>
+      <p>CTO, StartupX</p>
+    </div>
+
+    <!-- Alumni 11 -->
+    <div class="alumni-card">
+      <img src="https://via.placeholder.com/100" alt="Alumni">
+      <h3>Meera Deshmukh</h3>
+      <p>Batch: 2022</p>
+      <p>Intern, Deloitte</p>
+    </div>
+
+    <!-- Alumni 12 -->
+    <div class="alumni-card">
+      <img src="https://via.placeholder.com/100" alt="Alumni">
+      <h3>Sahil Khan</h3>
+      <p>Batch: 2012</p>
+      <p>HR Head, TechMahindra</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Alumni Portal. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function searchAlumni() {
+      let input = document.getElementById('searchInput').value.toLowerCase();
+      let cards = document.getElementsByClassName('alumni-card');
+
+      for (let i = 0; i < cards.length; i++) {
+        let name = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+        let details = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
+
+        if (name.includes(input) || details.includes(input)) {
+          cards[i].style.display = "";
+        } else {
+          cards[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

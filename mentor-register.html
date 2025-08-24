@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register as a Mentor</title>
+  <link rel="stylesheet" href="style-mentor.css"/>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Become a Mentor</h1>
+      <p class="subtitle">Share your experience and guide the next generation.</p>
+    </header>
+
+    <section class="card">
+      <form id="mentorForm" class="form">
+        <div class="full">
+          <label class="label" for="m_name">Full Name</label>
+          <input class="input" id="m_name" name="name" required placeholder="e.g., Riya Sharma"/>
+        </div>
+
+        <div>
+          <label class="label" for="m_email">Email</label>
+          <input type="email" class="input" id="m_email" name="email" required placeholder="riya@domain.com"/>
+        </div>
+
+        <div>
+          <label class="label" for="m_linked">LinkedIn (optional)</label>
+          <input class="input" id="m_linked" name="linkedin" placeholder="https://linkedin.com/in/..."/>
+        </div>
+
+        <div>
+          <label class="label" for="m_experience">Experience (years)</label>
+          <input type="number" min="0" class="input" id="m_experience" name="experience" required placeholder="3"/>
+        </div>
+
+        <div>
+          <label class="label" for="m_avail">Availability (hrs/week)</label>
+          <input type="number" min="1" class="input" id="m_avail" name="availability" required placeholder="2"/>
+        </div>
+
+        <div class="full">
+          <label class="label">Expertise Areas (choose / type)</label>
+          <input class="input" id="m_expertise" placeholder="Type comma separated: Web Dev, AI, DS"/>
+          <div class="chips" id="expertiseChips">
+            <span class="chip">Web Development</span>
+            <span class="chip">Data Science</span>
+            <span class="chip">Machine Learning</span>
+            <span class="chip">AI</span>
+            <span class="chip">Cloud</span>
+            <span class="chip">Cybersecurity</span>
+            <span class="chip">Android</span>
+            <span class="chip">Competitive Programming</span>
+            <span class="chip">Blockchain</span>
+            <span class="chip">UI/UX</span>
+          </div>
+        </div>
+
+        <div class="full">
+          <label class="label" for="m_bio">Short Bio</label>
+          <textarea class="textarea" id="m_bio" placeholder="Tell mentees how you can help..."></textarea>
+        </div>
+
+        <div class="row full">
+          <button class="btn btn-primary" type="submit">Register as Mentor</button>
+          <a class="btn btn-ghost" href="index.html">Back</a>
+        </div>
+
+        <p id="saveNote" class="full center" style="display:none;">
+          <span class="success">Mentor registered!</span> You can now be discovered in “Find a Mentor”.
+        </p>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    // Toggle chips
+    document.querySelectorAll('#expertiseChips .chip').forEach(ch => {
+      ch.addEventListener('click', () => ch.classList.toggle('active'));
+    });
+
+    // Helper: read & write localStorage
+    const getMentors = () => JSON.parse(localStorage.getItem('mentors') || '[]');
+    const setMentors = (arr) => localStorage.setItem('mentors', JSON.stringify(arr));
+
+    // form submit
+    document.getElementById('mentorForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+
+      const name = document.getElementById('m_name').value.trim();
+      const email = document.getElementById('m_email').value.trim();
+      const linkedin = document.getElementById('m_linked').value.trim();
+      const experience = Number(document.getElementById('m_experience').value || 0);
+      const availability = Number(document.getElementById('m_avail').value || 0);
+      const manualExp = document.getElementById('m_expertise').value
+        .split(',').map(s => s.trim()).filter(Boolean);
+      const chipExp = Array.from(document.querySelectorAll('#expertiseChips .chip.active'))
+        .map(el => el.textContent.trim());
+      const expertise = Array.from(new Set([...manualExp, ...chipExp]));
+      const bio = document.getElementById('m_bio').value.trim();
+
+      if(!expertise.length){
+        alert('Select or enter at least one expertise.');
+        return;
+      }
+
+      const mentor = {
+        id: Date.now(),
+        name, email, linkedin, experience, availability, expertise, bio
+      };
+
+      const list = getMentors();
+      list.push(mentor);
+      setMentors(list);
+
+      document.getElementById('saveNote').style.display='block';
+      (e.target).reset();
+      document.querySelectorAll('#expertiseChips .chip.active').forEach(c => c.classList.remove('active'));
+    });
+
+    
+  document.getElementById("mentorForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // default submit rok diya
+
+    // Yaha aap backend call / API likh sakte ho agar zarurat ho
+    alert("You have successfully registered as a mentor!");
+
+    // Redirect to main website (index.html)
+    window.location.href = "index.html";
+  });
+
+  </script>
+</body>
+</html>
